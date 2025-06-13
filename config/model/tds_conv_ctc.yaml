@@ -1,0 +1,14 @@
+# @package _global_
+module:
+  _target_: emg2qwerty.lightning.TDSConvCTCModule
+  in_features: 528 #96 for RSG. In general, this is frequency_bands_per_electrode x number_of_electrodes_per_hand
+  mlp_features: [384] #528 for Upscaled Split-and-Share (SplashNet)
+  block_channels: [24, 24, 24, 24] #[24,24,48,48] for Upscaled Split-and-Share (SplashNet)
+  kernel_width: 32  # Total temporal receptive field of 125 samples given 4 layers
+  share_hand_weights: False #True for all Split-and-Share (and Split-only) models.
+  spec_norm: 'BatchNorm2d' #'RollingTimeNorm' for RTN
+
+datamodule:
+  _target_: emg2qwerty.lightning.WindowedEMGDataModule
+  window_length: 8000 #32000 for 16 second windows, default of 8000 uses 4 sec windows for 2kHz EMG
+  padding: [1800, 200]  # 900ms past context, 100ms future context

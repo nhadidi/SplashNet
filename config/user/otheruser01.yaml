@@ -1,0 +1,13 @@
+# @package _global_
+user: otheruser01
+dataset:
+# train is just filler to make code run
+  train:
+  - user: 41530403
+    session: 2021-07-25-1627238654-keystrokes-dca-study@1-ed5d21d5-b468-4733-88c9-2dda42b84548
+  val:
+  - user: 41530403
+    session: 2021-07-25-1627238654-keystrokes-dca-study@1-ed5d21d5-b468-4733-88c9-2dda42b84548
+  test:
+  - user: 4809769
+    session: 2021-05-07-1620420118-keystrokes-dca-study@1-8a664577-d6fc-49ee-a7b2-4982aec671fc
